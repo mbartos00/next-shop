@@ -21,7 +21,7 @@ const Newsletter = () => {
 				onSubmit={subscribeToNewsletter}
 				className='mt-6 px-4 md:mt-0 md:flex md:items-center md:px-0 2xl:w-full'
 			>
-				<div className='flex w-full justify-center'>
+				<div className='flex flex-col justify-center gap-4 md:flex-row md:gap-0'>
 					<input
 						className='px-4 py-2.5 text-primary xl:py-4 2xl:w-full'
 						type='email'
@@ -29,7 +29,7 @@ const Newsletter = () => {
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder='Your email address here'
 					/>
-					<button className='bg-secondary px-3 text-sm font-medium'>SUBSCRIBE</button>
+					<button className='bg-secondary px-3 py-3 text-sm font-medium md:py-0'>SUBSCRIBE</button>
 				</div>
 			</form>
 		</div>
