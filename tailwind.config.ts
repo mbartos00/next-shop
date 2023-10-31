@@ -8,8 +8,7 @@ const config: Config = {
 	],
 	theme: {
 		fontFamily: {
-			lato: ['Lato', 'sans-serif'],
-			jost: ['Jost', 'sans-serif'],
+			inter: ['Inter', 'sans-serif'],
 		},
 		extend: {
 			colors: {

@@ -10,7 +10,7 @@ const Navbar = () => {
 	const isMobile = isMobileWidth(windowWidth!);
 	return (
 		<div className='flex items-center justify-between bg-white px-4 py-4 xl:px-6'>
-			<Link className='font-jost text-2xl font-medium text-primary ' href={'/'}>
+			<Link className='text-2xl font-medium text-primary ' href={'/'}>
 				NextStore
 			</Link>
 			<NavMenu />

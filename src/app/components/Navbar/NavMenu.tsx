@@ -43,7 +43,7 @@ const NavMenu = () => {
 			<ul className='flex flex-col gap-2 md:flex-row md:gap-[5vw]'>
 				{links.map((link) => (
 					<li
-						className={`font-lato text-base font-bold  ${
+						className={`text-base font-bold  ${
 							currentPath === link.path ? 'text-secondary' : 'text-primary'
 						} transition-all duration-200 xl:hover:text-secondary`}
 						key={link.path}
