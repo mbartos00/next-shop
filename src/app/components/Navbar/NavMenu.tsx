@@ -6,29 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-const links = [
-	{
-		title: 'Home',
-		path: '/',
-	},
-	{
-		title: 'Shop',
-		path: '/shop',
-	},
-	{
-		title: 'About',
-		path: '/about',
-	},
-	{
-		title: 'Blogs',
-		path: '/blogs',
-	},
-	{
-		title: 'Contact',
-		path: '/contact',
-	},
-];
-
+import { navLinks } from '@/app/constants/constants';
 const NavMenu = () => {
 	const { isMenuOpen, toggleMenuOpen } = useStore();
 	const windowWidth = useWindowWidth();
@@ -48,15 +26,15 @@ const NavMenu = () => {
 			}`}
 		>
 			<ul className='flex flex-col gap-2 md:flex-row md:gap-[5vw]'>
-				{links.map((link) => (
+				{navLinks.map((link) => (
 					<li
-						className={`text-base font-bold  ${
+						className={`text-base font-bold tracking-wider  ${
 							currentPath === link.path ? 'text-secondary' : 'text-primary'
 						} transition-all duration-200 xl:hover:text-secondary`}
 						key={link.path}
 					>
 						<Link onClick={onLinkClick} href={link.path}>
-							{link.title}
+							{link.title.toUpperCase()}
 						</Link>
 					</li>
 				))}
