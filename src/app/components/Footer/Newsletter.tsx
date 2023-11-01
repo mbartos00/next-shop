@@ -19,11 +19,11 @@ const Newsletter = () => {
 			</div>
 			<form
 				onSubmit={subscribeToNewsletter}
-				className='mt-6 px-4 md:mt-0 md:flex md:items-center md:px-0 2xl:w-full'
+				className='mt-6 px-4 md:mt-0 md:flex md:items-center md:justify-end md:px-0 2xl:w-full'
 			>
 				<div className='flex flex-col justify-center gap-4 md:flex-row md:gap-0'>
 					<input
-						className='px-4 py-2.5 text-primary xl:py-4 2xl:w-full'
+						className='px-4 py-2.5 text-primary 2xl:w-full'
 						type='email'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}

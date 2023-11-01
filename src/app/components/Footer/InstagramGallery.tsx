@@ -2,11 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const photos = [
-	{ image: '/mockImages/camera.png', link: 'www.instagram.com/id' },
-	{ image: '/mockImages/drone.jpg', link: 'www.instagram.com/id' },
-	{ image: '/mockImages/headphones.jpg', link: 'www.instagram.com/id' },
-	{ image: '/mockImages/laptop.jpg', link: 'https://www.instagram.com/id' },
-	{ image: '/mockImages/phone.jpg', link: 'www.instagram.com/id' },
+	{ image: '/mockImages/camera.png', link: 'https://www.instagram.com/id1' },
+	{ image: '/mockImages/drone.jpg', link: 'https://www.instagram.com/id2' },
+	{ image: '/mockImages/headphones.jpg', link: 'https://www.instagram.com/id3' },
+	{ image: '/mockImages/laptop.jpg', link: 'https://www.instagram.com/id4' },
+	{ image: '/mockImages/phone.jpg', link: 'https://www.instagram.com/id5' },
 ];
 const InstagramGallery = () => {
 	return (
@@ -14,7 +14,10 @@ const InstagramGallery = () => {
 			<h1 className='mb-6 text-lg font-semibold text-primary'>SHOP OUR INSTA</h1>
 			<div className='grid grid-cols-2 gap-4 px-2 md:grid-cols-5'>
 				{photos.map(({ image, link }, idx, arr) => (
-					<div className={`${idx + 1 === arr.length ? 'col-span-2 md:col-auto' : ''} relative`}>
+					<div
+						key={link}
+						className={`${idx + 1 === arr.length ? 'col-span-2 md:col-auto' : ''} relative`}
+					>
 						<Image
 							style={{ width: '100%', aspectRatio: 1 }}
 							src={image}
@@ -32,7 +35,7 @@ const InstagramGallery = () => {
 								alt='instagram icon'
 								width={30}
 								height={30}
-								style={{ opacity: 0.7 }}
+								style={{ width: 'auto', aspectRatio: 1, opacity: 0.7 }}
 							/>
 						</Link>
 					</div>
