@@ -3,7 +3,7 @@ import React from 'react';
 
 const Copyrights = () => {
 	return (
-		<div className='mt-20 flex flex-col items-center gap-2 border-t-[1px] border-[#D0D0D0] md:w-full md:flex-row md:justify-between md:px-[6vw] xl:py-5'>
+		<div className='mt-20 flex flex-col items-center gap-2 border-t-[1px] border-[#D0D0D0] py-5 md:w-full md:flex-row md:justify-between md:px-[6vw]'>
 			<div className='flex flex-col gap-2 xl:flex-row'>
 				<div className='mt-1 flex items-center justify-center gap-3 md:mt-2 xl:mt-0'>
 					<h3 className='font-light text-primary'>We ship with</h3>
