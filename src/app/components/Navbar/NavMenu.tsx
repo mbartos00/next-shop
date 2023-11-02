@@ -14,7 +14,7 @@ const NavMenu = () => {
 	const currentPath = usePathname();
 
 	const onLinkClick = () => {
-		if (!isMobile) {
+		if (isMobile) {
 			toggleMenuOpen();
 		}
 	};
