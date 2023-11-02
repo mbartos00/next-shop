@@ -23,7 +23,7 @@ const Informations = () => {
 				</p>
 				<div className='mt-5 flex gap-6'>
 					{socialMediaIcons.map((icon) => (
-						<Link href={'#'}>
+						<Link href={'#'} key={icon}>
 							<Image
 								src={icon}
 								alt='social media icon'
