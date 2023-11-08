@@ -1,6 +1,7 @@
 import FeatureList from './components/FeatureList';
 import HomeHero from './components/Hero/HomeHero';
 import ProductSection from './components/ProductSection';
+import Sales from './components/Sales';
 
 const mockedContent = [
 	{
@@ -50,6 +51,7 @@ const Home = () => {
 				<ProductSection content={mockedContent} heading='mobile products' />
 				<ProductSection content={mockedContent} heading='smart watches' />
 			</div>
+			<Sales heading='new year sale' discount={10} />
 		</main>
 	);
 };
