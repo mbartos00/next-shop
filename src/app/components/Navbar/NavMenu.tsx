@@ -33,8 +33,8 @@ const NavMenu = () => {
 						} transition-all duration-200 xl:hover:text-secondary`}
 						key={link.path}
 					>
-						<Link onClick={onLinkClick} href={link.path}>
-							{link.title.toUpperCase()}
+						<Link onClick={onLinkClick} href={link.path} className='uppercase'>
+							{link.title}
 						</Link>
 					</li>
 				))}
