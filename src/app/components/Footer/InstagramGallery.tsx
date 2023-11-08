@@ -12,7 +12,7 @@ const InstagramGallery = () => {
 	return (
 		<div className='mt-10 flex flex-col items-center'>
 			<h1 className='mb-6 text-lg font-semibold text-primary'>SHOP OUR INSTA</h1>
-			<div className='grid grid-cols-2 gap-4 px-2 md:grid-cols-5'>
+			<div className='grid w-full grid-cols-2 gap-4 px-2 md:grid-cols-5'>
 				{photos.map(({ image, link }, idx, arr) => (
 					<div
 						key={link}
