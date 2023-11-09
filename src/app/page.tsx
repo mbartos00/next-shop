@@ -1,5 +1,8 @@
+import Carousel from './components/Carousel';
 import FeatureList from './components/FeatureList';
 import HomeHero from './components/Hero/HomeHero';
+import Post from './components/Post';
+import Posts from './components/Posts';
 import ProductSection from './components/ProductSection';
 import Sales from './components/Sales';
 
@@ -42,6 +45,55 @@ const mockedContent = [
 	},
 ];
 
+const mockedPosts = [
+	{
+		id: 1,
+		image: '/mockImages/postImage.png',
+		category: 'Gadgets',
+		title: 'Get some cool gadgets in 2023',
+		createdAt: 'feb 22, 2023',
+	},
+
+	{
+		id: 2,
+		image: '/mockImages/postImage.png',
+		category: 'Gadgets',
+		title: 'Get some cool gadgets in 2023',
+		createdAt: 'feb 22, 2023',
+	},
+
+	{
+		id: 3,
+		image: '/mockImages/postImage.png',
+		category: 'Gadgets',
+		title: 'Get some cool gadgets in 2023',
+		createdAt: 'feb 22, 2023',
+	},
+];
+const mockedReviews = [
+	{
+		id: 1,
+		review:
+			'Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi.',
+		rating: 4,
+		createdBy: 'John Doe',
+	},
+	{
+		id: 2,
+		review:
+			'Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi.',
+		rating: 5,
+		createdBy: 'Emma Doe',
+	},
+	{
+		id: 3,
+		review:
+			'Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi.',
+		rating: 2,
+		createdBy: 'Adrian Doe',
+	},
+];
+
 const Home = () => {
 	return (
 		<main>
@@ -52,6 +104,10 @@ const Home = () => {
 				<ProductSection content={mockedContent} heading='smart watches' />
 			</div>
 			<Sales heading='new year sale' discount={10} />
+			<div className='xl:px-[15vw]'>
+				<Posts posts={mockedPosts} />
+				<Carousel content={mockedReviews} variant='review' arrows />
+			</div>
 		</main>
 	);
 };

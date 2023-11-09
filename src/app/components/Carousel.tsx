@@ -158,6 +158,7 @@ const Carousel = ({ content, variant, arrows, heading }: Props) => {
 															alt='star rating icon'
 															width={15}
 															height={15}
+															style={{ width: '15px', height: '15px' }}
 															className={`${
 																idx < item.rating ? '' : 'opacity-70 contrast-200 grayscale'
 															}`}
