@@ -13,7 +13,7 @@ model Post {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   category   Category? @relation(fields: [categoryId], references: [id])
-  categoryId String    @unique @db.ObjectId
+  categoryId String    @db.ObjectId
   image      Image[]
   content    Json?
   comments   Comment[]
@@ -36,7 +36,7 @@ model Product {
   specification String
   images        Image[]
   category      Category? @relation(fields: [categoryId], references: [id])
-  categoryId    String    @unique @db.ObjectId
+  categoryId    String    @db.ObjectId
   discount      Int?
   price         Int
   reviews       Review[]
@@ -49,7 +49,7 @@ model Image {
   product   Product? @relation(fields: [productId], references: [id])
   productId String?  @db.ObjectId
   post      Post?    @relation(fields: [postId], references: [id])
-  postId    String?  @unique @db.ObjectId
+  postId    String?  @db.ObjectId
 }
 
 model Comment {
@@ -60,7 +60,7 @@ model Comment {
   post      Post?    @relation(fields: [postId], references: [id])
   postId    String?  @db.ObjectId
   user      User?    @relation(fields: [userId], references: [id])
-  userId    String   @unique @db.ObjectId
+  userId    String   @db.ObjectId
 }
 
 model User {
@@ -96,7 +96,7 @@ model Review {
   rating    Int
   review    String
   user      User?    @relation(fields: [userId], references: [id])
-  userId    String   @unique @db.ObjectId
+  userId    String   @db.ObjectId
   product   Product? @relation(fields: [productId], references: [id])
-  productId String   @unique @db.ObjectId
+  productId String   @db.ObjectId
 }
