@@ -6,3 +6,9 @@ export type PostType = Prisma.PostGetPayload<{
     image: true;
   };
 }>;
+export type ProductType = Prisma.ProductGetPayload<{
+  include: {
+    category: true;
+    images: true;
+  };
+}>;
