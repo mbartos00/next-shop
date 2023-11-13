@@ -39,7 +39,7 @@ const Sales = async ({ heading }: Props) => {
         </div>
         <Image
           src={discountedProduct?.images[0].path}
-          style={{ width: '100%', maxWidth: '530px', maxHeight: '654px' }}
+          style={{ width: '100%', maxWidth: '530px', maxHeight: '654px', marginBlock: '.5rem' }}
           width={530}
           height={0}
           alt={`${discountedProduct?.name} image`}
