@@ -30,7 +30,7 @@ const EmblaCarousel = ({ products }: { products: ProductType[] }) => {
         <div className='-ml-4 flex touch-pan-y xl:-ml-5'>
           {products.slice(0, 20).map((product: ProductType) => (
             <Link
-              href={`/products/${product.id}`}
+              href={`/shop/${product.id}`}
               className='relative mb-5 min-w-0 flex-shrink-0 flex-grow-0 basis-[50%] pl-4 md:basis-[33%] xl:basis-[25%] xl:pl-5'
               key={product.id}
             >
