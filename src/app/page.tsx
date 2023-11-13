@@ -6,45 +6,6 @@ import ProductSection from './components/ProductSection';
 import Sales from './components/Sales';
 import { ProductType } from './types/types';
 
-const mockedContent = [
-  {
-    id: 1,
-    title: 'Iphone',
-    price: 1234,
-    image: '/mockImages/phone.jpg',
-  },
-  {
-    id: 2,
-    title: 'Iphone2',
-    price: 1234,
-    image: '/mockImages/phone.png',
-  },
-  {
-    id: 3,
-    title: 'Iphone3',
-    price: 1234,
-    image: '/mockImages/phone.png',
-  },
-  {
-    id: 4,
-    title: 'Iphone4',
-    price: 1234,
-    image: '/mockImages/phone.png',
-  },
-  {
-    id: 5,
-    title: 'Iphone5',
-    price: 1234,
-    image: '/mockImages/phone.png',
-  },
-  {
-    id: 6,
-    title: 'Iphone6',
-    price: 1234,
-    image: '/mockImages/phone.png',
-  },
-];
-
 const getProductsByCategory = async (category: string): Promise<ProductType[]> => {
   try {
     const res = await fetch(`${process.env.BASE_API_URL}/products?category=${category}`, {
