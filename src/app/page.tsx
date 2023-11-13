@@ -4,6 +4,7 @@ import HomeHero from './components/Hero/HomeHero';
 import Posts from './components/Posts';
 import ProductSection from './components/ProductSection';
 import Sales from './components/Sales';
+import { ProductType } from './types/types';
 
 const mockedContent = [
   {
@@ -44,6 +45,18 @@ const mockedContent = [
   },
 ];
 
+const getProductsByCategory = async (category: string): Promise<ProductType[]> => {
+  try {
+    const res = await fetch(`${process.env.BASE_API_URL}/products?category=${category}`, {
+      cache: 'no-cache',
+    });
+    return res.json();
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error);
+  }
+};
+
 const mockedReviews = [
   {
     id: 1,
@@ -68,16 +81,19 @@ const mockedReviews = [
   },
 ];
 
-const Home = () => {
+const Home = async () => {
+  const phones = await getProductsByCategory('phones');
+  const smartWatches = await getProductsByCategory('watches');
+
   return (
     <main>
       <HomeHero />
       <div className='xl:px-[15vw]'>
         <FeatureList />
-        <ProductSection content={mockedContent} heading='mobile products' />
-        <ProductSection content={mockedContent} heading='smart watches' />
+        <ProductSection products={phones} heading='mobile products' />
+        <ProductSection products={smartWatches} heading='smart watches' />
       </div>
-      <Sales heading='new year sale' discount={10} />
+      <Sales heading='new year sale' />
       <div className='xl:px-[15vw]'>
         <Posts />
         <Carousel content={mockedReviews} variant='review' arrows />
