@@ -3,15 +3,15 @@ import Navbar from './components/Navbar/Navbar';
 import './globals.css';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-	return (
-		<html lang='en'>
-			<body>
-				<Navbar />
-				{children}
-				<Footer />
-			</body>
-		</html>
-	);
+  return (
+    <html lang='en'>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
 };
 
 export default RootLayout;
