@@ -1,23 +1,24 @@
 import React from 'react';
 import Carousel from '../Carousel';
+import { ProductType } from '@/app/types/types';
 
-const mockedContent = [
-	{
-		id: Math.floor(Math.random() * 100),
-		image: '/heroImage.png',
-	},
-	{
-		id: Math.floor(Math.random() * 100),
-		image: '/hero2.png',
-	},
-];
+const getLatestPosts = async (): Promise<ProductType[]> => {
+  try {
+    const res = await fetch(`${process.env.BASE_API_URL}/products/latest`, { cache: 'no-cache' });
+    return res.json();
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error);
+  }
+};
 
-const HomeHero = () => {
-	return (
-		<div>
-			<Carousel variant='hero' heading='your products are great' arrows content={mockedContent} />
-		</div>
-	);
+const HomeHero = async () => {
+  const latestProducts = await getLatestPosts();
+  return (
+    <div>
+      <Carousel variant='hero' heading='your products are great' arrows content={latestProducts} />
+    </div>
+  );
 };
 
 export default HomeHero;
