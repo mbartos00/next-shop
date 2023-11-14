@@ -10,7 +10,10 @@ const EmblaCarousel = ({ products }: { products: ProductType[] }) => {
     containScroll: 'trimSnaps',
     loop: true,
     breakpoints: {
-      '(max-width: 768px)': {
+      '(max-width: 400px)': {
+        slidesToScroll: 1,
+      },
+      '(min-width: 400px) and (max-width:768px)': {
         slidesToScroll: 2,
       },
       '(min-width: 768px)': {
@@ -31,13 +34,13 @@ const EmblaCarousel = ({ products }: { products: ProductType[] }) => {
           {products.slice(0, 20).map((product: ProductType) => (
             <Link
               href={`/shop/${product.id}`}
-              className='relative mb-5 min-w-0 flex-shrink-0 flex-grow-0 basis-[50%] pl-4 md:basis-[33%] xl:basis-[25%] xl:pl-5'
+              className='relative mb-5 min-w-0 flex-shrink-0 flex-grow-0 basis-[50%] pl-4 max-[400px]:basis-[100%] md:basis-[33%] xl:basis-[25%] xl:pl-5'
               key={product.id}
             >
               <Image
                 width={1000}
                 height={1000}
-                style={{ width: '100%', height: '80%' }}
+                style={{ width: '100%', maxHeight: '418px', aspectRatio: 1 }}
                 src={product.images[0].path}
                 className='block object-cover'
                 alt={`${product.images[0].name} image`}
