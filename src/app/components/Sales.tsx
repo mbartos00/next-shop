@@ -21,7 +21,7 @@ const getDiscountedProduct = async (): Promise<ProductType> => {
 
 const Sales = async ({ heading }: Props) => {
   const discountedProduct = await getDiscountedProduct();
-  console.log(discountedProduct.images);
+
   return (
     <div className=' bg-[#EDF1F3]'>
       <div className='grid grid-cols-1 place-items-center text-center uppercase text-primary xl:grid-cols-4'>
