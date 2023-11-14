@@ -106,10 +106,13 @@ const Carousel = ({ content, variant, arrows, heading }: Props) => {
                       <Image
                         key={product.id}
                         src={product.images[0].path}
-                        style={{ maxWidth: '530px', maxHeight: '600px' }}
+                        style={{
+                          maxWidth: '530px',
+                          maxHeight: '600px',
+                        }}
                         width={530}
                         height={0}
-                        alt='some'
+                        alt={`${product.images[0].name} image`}
                         className='h-[85vw] w-[70vw] xl:ml-16'
                       />
                     </motion.div>
