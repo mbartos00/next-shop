@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { ProductType } from '../types/types';
+import Button from './Button';
 
 type Props = {
   heading: string;
@@ -30,12 +31,11 @@ const Sales = async ({ heading }: Props) => {
           <h1 className='mb-8 mt-4 text-4xl font-light md:text-5xl xl:mb-10 xl:text-6xl'>
             {heading}
           </h1>
-          <Link
-            className='mt-6 bg-primary px-6 py-2 text-sm font-medium uppercase tracking-wider text-white xl:px-12 xl:py-4'
-            href={`/${discountedProduct?.id}`}
-          >
-            shop sale
-          </Link>
+          <Button
+            text='shop sale'
+            link={`/${discountedProduct?.id}`}
+            className='px-6 py-2 xl:px-12 xl:py-4'
+          />
         </div>
         <Image
           src={discountedProduct?.images[0].path}

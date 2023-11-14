@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Swipe from 'react-easy-swipe';
 import { ProductType } from '../types/types';
+import Button from './Button';
 
 type Props = {
   variant: 'hero' | 'review';
@@ -96,12 +97,11 @@ const Carousel = ({ content, variant, arrows, heading }: Props) => {
                         <h1 className='mb-8 mt-8 text-4xl font-light uppercase md:text-5xl xl:mb-10 xl:mt-0 xl:text-6xl'>
                           {heading}
                         </h1>
-                        <Link
-                          className='mt-6 bg-primary px-6 py-2 text-sm font-medium tracking-wider text-white xl:py-3'
-                          href={`/shop/${product.id}`}
-                        >
-                          SHOP PRODUCT
-                        </Link>
+                        <Button
+                          text='shop product'
+                          link={`/shop/${product.id}`}
+                          className='px-6 py-2 xl:py-3'
+                        />
                       </div>
                       <Image
                         key={product.id}

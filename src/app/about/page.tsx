@@ -2,6 +2,7 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
 import Link from 'next/link';
+import Button from '../components/Button';
 
 const mockedReviews = [
   {
@@ -46,12 +47,7 @@ const page = () => {
             We scoured the tech landscape, handpicking the finest devices that redefine what's
             possible. Our mission? To make top-tier electronics accessible to all.
           </p>
-          <Link
-            className='bg-primary px-6 py-3 text-sm font-light uppercase tracking-wider text-white xl:px-12 xl:py-4'
-            href={`/shop`}
-          >
-            shop our store
-          </Link>
+          <Button text='shop our store' link='/store' className='px-6 py-4 xl:px-12 xl:py-4' />
         </div>
       </section>
       <Carousel content={mockedReviews} variant='review' arrows />

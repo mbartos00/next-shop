@@ -1,5 +1,6 @@
 'use client';
 import { FormEvent, useState } from 'react';
+import Button from '../Button';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ const Newsletter = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder='Your email address here'
           />
-          <button className='bg-secondary px-3 py-3 text-sm font-medium md:py-0'>SUBSCRIBE</button>
+          <Button tag='button' text='subscribe' variant='secondary' className='px-3 py-3 md:py-0' />
         </div>
       </form>
     </div>
