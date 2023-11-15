@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Carousel from './components/Carousel';
 import FeatureList from './components/FeatureList';
 import HomeHero from './components/Hero/HomeHero';
@@ -41,6 +42,12 @@ const mockedReviews = [
     createdBy: 'Adrian Doe',
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    'Discover cutting-edge electronics at NextShop. Explore a vast selection of the latest gadgets, from smartphones to smart home devices. Shop top brands for unbeatable prices and stay ahead in the world of technology. Find the perfect tech companion today!',
+};
 
 const Home = async () => {
   const phones = await getProductsByCategory('phones');

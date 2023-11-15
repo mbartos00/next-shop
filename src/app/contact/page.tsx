@@ -2,6 +2,13 @@ import Image from 'next/image';
 import ContactForm from './ContactForm';
 import ContactInfo from './ContactInfo';
 import { contactInfo, storesContactInfo } from '../constants/constants';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'Have questions or need assistance with your tech purchase? Contact NextShop for expert support. Our dedicated team is here to help you with any inquiries. Reach out today and experience hassle-free shopping for all your electronic needs.',
+};
 
 const page = () => {
   return (

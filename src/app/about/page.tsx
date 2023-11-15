@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
-import Carousel from '../components/Carousel';
-import Link from 'next/link';
+import { Metadata } from 'next';
 import Button from '../components/Button';
+import Carousel from '../components/Carousel';
 
 const mockedReviews = [
   {
@@ -27,6 +26,11 @@ const mockedReviews = [
     createdBy: 'Adrian Doe',
   },
 ];
+export const metadata: Metadata = {
+  title: 'About Us',
+  description:
+    "NextShop – Where Tech Passion meets Innovation! Founded on the belief that technology should simplify, not complicate, life, NextShop came to life. Picture this: a group of tech enthusiasts united by the vision of delivering cutting-edge gadgets that seamlessly integrate into your lifestyle. The Journey From that shared passion, NextShop was born. We scoured the tech landscape, handpicking the finest devices that redefine what's possible. Our mission? To make top-tier electronics accessible to all.",
+};
 
 const page = () => {
   return (
