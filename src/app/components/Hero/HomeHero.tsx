@@ -16,7 +16,7 @@ const HomeHero = async () => {
   const latestProducts = await getLatestPosts();
   return (
     <div>
-      <Carousel variant='hero' heading='your products are great' arrows content={latestProducts} />
+      <Carousel variant='hero' heading='our products are great' arrows content={latestProducts} />
     </div>
   );
 };
