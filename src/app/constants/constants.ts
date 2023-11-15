@@ -63,3 +63,32 @@ export const featureList = [
       'Enjoy secure payments with the latest encryption technology, so you can shop with peace of mind.',
   },
 ];
+
+export const contactInfo = [
+  {
+    title: 'office',
+    address: '730 Glenstone Ave 65802, Springfield, US',
+    phoneNumbers: ['+123 222 333 44', '+123 666 777 88'],
+    email: 'nextstore@yourinfo.com',
+  },
+  {
+    title: 'management',
+    address: '730 Glenstone Ave 65802, Springfield, US',
+    phoneNumbers: ['+123 222 333 44', '+123 666 777 88'],
+    email: 'nextstore@yourinfo.com',
+  },
+];
+export const storesContactInfo = [
+  {
+    title: 'usa',
+    address: '730 Glenstone Ave 65802, Springfield, US',
+    phoneNumbers: ['+123 222 333 44', '+123 666 777 88'],
+    email: 'nextstore@yourinfo.com',
+  },
+  {
+    title: 'france',
+    address: '13 Rue Montmartre 75001, Paris, France',
+    phoneNumbers: ['+123 222 333 44', '+123 666 777 88'],
+    email: 'nextstore@yourinfo.com',
+  },
+];
