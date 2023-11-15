@@ -24,13 +24,20 @@ const Button = ({
       {tag === 'link' ? (
         <Link
           {...linkProps}
-          className={`bg-${variant} ${className} text-sm font-light uppercase tracking-wider text-white `}
+          className={`${
+            variant === 'primary' ? 'bg-primary' : 'bg-secondary'
+          } ${className} text-sm font-light uppercase tracking-wider text-white `}
           href={link!}
         >
           {text}
         </Link>
       ) : (
-        <button {...rest} className={`bg-${variant} ${className} text-sm font-medium uppercase`}>
+        <button
+          {...rest}
+          className={`${
+            variant === 'primary' ? 'bg-primary' : 'bg-secondary'
+          } ${className} text-sm font-medium uppercase`}
+        >
           {text}
         </button>
       )}
