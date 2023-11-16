@@ -1,10 +1,8 @@
 'use client';
-import useEmblaCarousel from 'embla-carousel-react';
-import Image from 'next/image';
-import { SliderDots, useDotButton } from './SliderDots';
 import { ProductType } from '@/app/types/types';
-import Link from 'next/link';
+import useEmblaCarousel from 'embla-carousel-react';
 import Product from '../Product';
+import { SliderDots, useDotButton } from './SliderDots';
 
 const EmblaCarousel = ({ products }: { products: ProductType[] }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
