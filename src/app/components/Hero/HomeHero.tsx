@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from '../Carousel';
 import { ProductType } from '@/app/types/types';
 
-const getLatestPosts = async (): Promise<ProductType[]> => {
+const getLatestProducts = async (): Promise<ProductType[]> => {
   try {
     const res = await fetch(`${process.env.BASE_API_URL}/products/latest`, { cache: 'no-cache' });
     return res.json();
@@ -13,7 +13,7 @@ const getLatestPosts = async (): Promise<ProductType[]> => {
 };
 
 const HomeHero = async () => {
-  const latestProducts = await getLatestPosts();
+  const latestProducts = await getLatestProducts();
   return (
     <div>
       <Carousel variant='hero' heading='our products are great' arrows content={latestProducts} />
