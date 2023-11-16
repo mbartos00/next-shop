@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, DetailedHTMLProps, HTMLProps } from 'react';
 
 type Props = {
   tag?: 'link' | 'button';
-  text: string;
+  text: string | React.ReactNode;
   link?: string;
   className?: HTMLProps<HTMLElement>['className'];
   variant?: 'primary' | 'secondary';
