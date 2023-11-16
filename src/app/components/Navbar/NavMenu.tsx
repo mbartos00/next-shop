@@ -8,11 +8,10 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 import { navLinks } from '@/app/constants/constants';
 const NavMenu = () => {
-  const { isMenuOpen, toggleMenuOpen } = useStore();
+  const { isMenuOpen, toggleMenuOpen, cart } = useStore();
   const windowWidth = useWindowWidth();
   const isMobile = isMobileWidth(windowWidth!);
   const currentPath = usePathname();
-
   const onLinkClick = () => {
     if (isMobile) {
       toggleMenuOpen();
@@ -21,7 +20,7 @@ const NavMenu = () => {
 
   return (
     <nav
-      className={`md: fixed left-0 top-0 z-10 flex h-full w-full flex-col items-center bg-white py-10 text-center opacity-100 transition-all duration-500 ease-in-out md:relative md:w-auto md:translate-x-0 md:flex-row md:py-0 ${
+      className={`fixed left-0 top-0 z-10 flex h-full w-full flex-col items-center bg-white py-10 text-center opacity-100 transition-all duration-500 ease-in-out md:relative md:w-auto md:translate-x-0 md:flex-row md:py-0 ${
         isMenuOpen && isMobile ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}
     >
@@ -50,7 +49,7 @@ const NavMenu = () => {
         <Link onClick={onLinkClick} href={'/profile'}>
           <Image src='/userIcon.svg' alt='cart icon' width={20} height={20} />
         </Link>
-        <Link onClick={onLinkClick} href={'/cart'}>
+        <Link onClick={onLinkClick} href={'/cart'} className='flex gap-1'>
           <Image
             src='/cartIcon.svg'
             style={{ width: 'auto', height: '20px' }}
@@ -58,6 +57,7 @@ const NavMenu = () => {
             width={25}
             height={0}
           />
+          <span>({cart.length || 0})</span>
         </Link>
       </div>
     </nav>
