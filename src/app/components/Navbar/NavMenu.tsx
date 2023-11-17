@@ -24,7 +24,7 @@ const NavMenu = () => {
         isMenuOpen && isMobile ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}
     >
-      <ul className='flex flex-col gap-2 md:flex-row md:gap-[5vw]'>
+      <ul className='flex flex-col gap-2 md:flex-row md:gap-8 xl:gap-12'>
         {navLinks.map((link) => (
           <li
             className={`text-base font-bold tracking-wider  ${
@@ -38,7 +38,7 @@ const NavMenu = () => {
           </li>
         ))}
       </ul>
-      <div className='mt-4 flex gap-4 md:ml-[5vw] md:mt-0 md:gap-[3vw] '>
+      <div className='mt-4 flex items-center gap-4 md:ml-8 md:mt-0 xl:ml-28 xl:gap-5'>
         <Image
           style={{ width: '20px', height: '20px' }}
           src={'/searchIcon.svg'}
@@ -49,7 +49,7 @@ const NavMenu = () => {
         <Link onClick={onLinkClick} href={'/profile'}>
           <Image src='/userIcon.svg' alt='cart icon' width={20} height={20} />
         </Link>
-        <Link onClick={onLinkClick} href={'/cart'} className='flex gap-1'>
+        <Link onClick={onLinkClick} href={'/cart'} className='flex items-center gap-1'>
           <Image
             src='/cartIcon.svg'
             style={{ width: 'auto', height: '20px' }}
@@ -57,7 +57,7 @@ const NavMenu = () => {
             width={25}
             height={0}
           />
-          <span>({cart.length || 0})</span>
+          <span className=' font-medium text-primary'>({cart.length || 0})</span>
         </Link>
       </div>
     </nav>
