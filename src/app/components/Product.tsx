@@ -9,9 +9,11 @@ import Button from './Button';
 type Props = {
   product: ProductType;
   withAddToCartButton?: boolean;
+  version?: 'slider' | 'standalone';
+  className?: string;
 };
 
-const Product = ({ product, withAddToCartButton }: Props) => {
+const Product = ({ product, withAddToCartButton, version = 'slider', className = '' }: Props) => {
   const { addToCart } = useStore();
 
   const addProductToCart = () => {
@@ -20,8 +22,14 @@ const Product = ({ product, withAddToCartButton }: Props) => {
   };
 
   return (
-    <div className='relative mb-5 min-w-0 flex-shrink-0 flex-grow-0 basis-[50%] pl-4 max-[400px]:basis-[100%] md:basis-[33%] xl:basis-[25%] xl:pl-5'>
-      <div className='relative'>
+    <div
+      className={`relative mb-5 min-w-0 ${
+        version === 'slider'
+          ? 'flex-shrink-0 flex-grow-0 basis-[50%] pl-4 max-[400px]:basis-[100%] md:basis-[33%] xl:basis-[25%] xl:pl-5'
+          : ''
+      } ${className}`}
+    >
+      <div className='group relative'>
         <Link href={`/shop/${product.id}`}>
           <Image
             width={1000}
@@ -38,17 +46,17 @@ const Product = ({ product, withAddToCartButton }: Props) => {
             tag='button'
             text={
               <div className='flex w-full justify-center gap-2'>
-                <p className='group-hover:text-primary'>add to cart</p>
+                <p>add to cart</p>
                 <Image
                   src={'/cartIcon.svg'}
                   alt='cart icon'
                   width={20}
                   height={20}
-                  className='invert group-hover:invert-0'
+                  className='invert'
                 />
               </div>
             }
-            className='group absolute bottom-[10%] left-1/2 z-10 w-[70%] -translate-x-1/2 px-4 py-2 text-white transition-all duration-300 ease-out hover:bg-secondary'
+            className={`absolute bottom-[10%] left-1/2 z-10 w-[70%] -translate-x-1/2 px-4 py-2 text-white transition-all duration-500 ease-out hover:bg-secondary group-hover:translate-y-0 group-hover:opacity-100 xl:translate-y-full xl:opacity-0`}
           />
         )}
       </div>
