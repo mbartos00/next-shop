@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { ProductType } from '../types/types';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 type Product = ProductType & {
   cartQuantity: number;
@@ -8,6 +9,9 @@ type Product = ProductType & {
 type StoreProps = {
   isMenuOpen: boolean;
   toggleMenuOpen: () => void;
+};
+
+type CartStoreProps = {
   cart: Product[];
   addToCart: (product: ProductType) => void;
   removeFromCart: (product: ProductType) => void;
@@ -44,21 +48,32 @@ const removeFromCart = (product: ProductType, cart: Product[]) => {
   }
 };
 
-const useStore = create<StoreProps>()((set, get) => ({
+const useGlobalStore = create<StoreProps>()((set) => ({
   isMenuOpen: false,
   toggleMenuOpen: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
-  cart: [],
-  addToCart: (product: ProductType) => {
-    const cart = get().cart;
-    const updatedCart = updateCart(product, cart);
-    set({ cart: updatedCart });
-  },
-  removeFromCart: (product: ProductType) => {
-    const cart = get().cart;
-    const updatedCart = removeFromCart(product, cart);
-    set({ cart: updatedCart });
-  },
-  clearCart: () => set(() => ({ cart: [] })),
 }));
 
-export default useStore;
+const useCartStore = create<CartStoreProps>()(
+  persist(
+    (set, get) => ({
+      cart: [],
+      addToCart: (product: ProductType) => {
+        const cart = get().cart;
+        const updatedCart = updateCart(product, cart);
+        set({ cart: updatedCart });
+      },
+      removeFromCart: (product: ProductType) => {
+        const cart = get().cart;
+        const updatedCart = removeFromCart(product, cart);
+        set({ cart: updatedCart });
+      },
+      clearCart: () => set(() => ({ cart: [] })),
+    }),
+    {
+      name: 'cart',
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);
+
+export { useGlobalStore, useCartStore };

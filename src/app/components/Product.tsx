@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import useStore from '../store/store';
+import { useCartStore } from '../store/store';
 import { ProductType } from '../types/types';
 import Button from './Button';
 
@@ -14,11 +14,12 @@ type Props = {
 };
 
 const Product = ({ product, withAddToCartButton, version = 'slider', className = '' }: Props) => {
-  const { addToCart } = useStore();
+  const { addToCart } = useCartStore();
 
-  const addProductToCart = () => {
+  const addProductToCart = async () => {
     addToCart(product);
     toast.info('Product added to cart', { description: product.name });
+    await useCartStore.persist.rehydrate();
   };
 
   return (

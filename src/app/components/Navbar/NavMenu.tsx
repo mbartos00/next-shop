@@ -1,14 +1,16 @@
 'use client';
 import useWindowWidth from '@/app/hooks/useWindowWidth';
-import useStore from '@/app/store/store';
+import { useCartStore, useGlobalStore } from '@/app/store/store';
 import isMobileWidth from '@/app/utils/isMobileWidth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { navLinks } from '@/app/constants/constants';
+import useStore from '@/app/hooks/useStore';
 const NavMenu = () => {
-  const { isMenuOpen, toggleMenuOpen, cart } = useStore();
+  const { isMenuOpen, toggleMenuOpen } = useGlobalStore();
+  const cart = useStore(useCartStore, (state) => state.cart);
   const windowWidth = useWindowWidth();
   const isMobile = isMobileWidth(windowWidth!);
   const currentPath = usePathname();
@@ -57,7 +59,7 @@ const NavMenu = () => {
             width={25}
             height={0}
           />
-          <span className=' font-medium text-primary'>({cart.length || 0})</span>
+          <span className=' font-medium text-primary'>({cart?.length || 0})</span>
         </Link>
       </div>
     </nav>

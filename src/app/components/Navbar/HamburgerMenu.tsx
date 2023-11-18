@@ -1,8 +1,8 @@
 'use client';
-import useStore from '@/app/store/store';
+import { useGlobalStore } from '@/app/store/store';
 
 const HamburgerMenu = () => {
-  const { isMenuOpen, toggleMenuOpen } = useStore();
+  const { isMenuOpen, toggleMenuOpen } = useGlobalStore();
   const handleClick = () => {
     toggleMenuOpen();
   };
