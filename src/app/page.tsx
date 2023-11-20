@@ -5,13 +5,16 @@ import HomeHero from './components/Hero/HomeHero';
 import Posts from './components/Posts';
 import ProductSection from './components/ProductSection';
 import Sales from './components/Sales';
-import { ProductType } from './types/types';
+import { Products } from './types/types';
 
-const getProductsByCategory = async (category: string): Promise<ProductType[]> => {
+const getProductsByCategory = async (category: string): Promise<Products> => {
   try {
-    const res = await fetch(`${process.env.BASE_API_URL}/products?category=${category}`, {
-      cache: 'no-cache',
-    });
+    const res = await fetch(
+      `${process.env.BASE_API_URL}/products?page=1&perPage=20&category=${category}`,
+      {
+        cache: 'no-cache',
+      }
+    );
     return res.json();
   } catch (error: any) {
     console.error(error);
@@ -50,8 +53,8 @@ export const metadata: Metadata = {
 };
 
 const Home = async () => {
-  const phones = await getProductsByCategory('phones');
-  const smartWatches = await getProductsByCategory('watches');
+  const { products: phones } = await getProductsByCategory('phones');
+  const { products: smartWatches } = await getProductsByCategory('watches');
 
   return (
     <main>
