@@ -40,14 +40,7 @@ const NavMenu = () => {
           </li>
         ))}
       </ul>
-      <div className='mt-4 flex items-center gap-4 md:ml-8 md:mt-0 xl:ml-28 xl:gap-5'>
-        <Image
-          style={{ width: '20px', height: '20px' }}
-          src={'/searchIcon.svg'}
-          alt='search icon'
-          width={20}
-          height={20}
-        />
+      <div className='mt-4 flex items-center gap-4 md:ml-12 md:mt-0 xl:ml-28 xl:gap-5'>
         <Link onClick={onLinkClick} href={'/profile'}>
           <Image src='/userIcon.svg' alt='cart icon' width={20} height={20} />
         </Link>
