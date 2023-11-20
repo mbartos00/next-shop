@@ -57,7 +57,7 @@ const Product = ({ product, withAddToCartButton, version = 'slider', className =
                 />
               </div>
             }
-            className={`absolute bottom-[10%] left-1/2 z-10 w-[70%] -translate-x-1/2 px-4 py-2 text-white transition-all duration-500 ease-out hover:bg-secondary group-hover:translate-y-0 group-hover:opacity-100 xl:translate-y-full xl:opacity-0`}
+            className={`absolute bottom-[10%] left-1/2 w-[70%] -translate-x-1/2 px-4 py-2 text-white transition-all duration-500 ease-out hover:bg-secondary group-hover:translate-y-0 group-hover:opacity-100 xl:translate-y-full xl:opacity-0`}
           />
         )}
       </div>
