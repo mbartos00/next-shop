@@ -10,8 +10,8 @@ type Props = {
 
 const RadioGroup = ({ name, values, title, checked }: Props) => {
   return (
-    <div className='w-fit'>
-      <h3 className='mb-4 font-medium uppercase underline' id={name}>
+    <div className='mb-4 w-fit text-center md:text-left'>
+      <h3 className='font-medium uppercase underline' id={name}>
         {title}
       </h3>
       <div className='flex flex-col gap-2' role='group' aria-labelledby={name}>
