@@ -12,3 +12,11 @@ export type ProductType = Prisma.ProductGetPayload<{
     images: true;
   };
 }>;
+
+export type Products = {
+  products: ProductType[];
+  perPage: number;
+  page: number;
+  totalPages: number;
+  count: number;
+};
