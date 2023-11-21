@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'Have questions or need assistance with your tech purchase? Contact NextShop for expert support. Our dedicated team is here to help you with any inquiries. Reach out today and experience hassle-free shopping for all your electronic needs.',
 };
 
-const page = () => {
+const Contact = () => {
   return (
     <main className='mb-7 flex flex-col items-center justify-center md:mb-14 xl:mb-28'>
       <Hero title='contact' />
@@ -46,4 +46,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Contact;

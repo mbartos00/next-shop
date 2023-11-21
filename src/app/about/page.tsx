@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "NextShop – Where Tech Passion meets Innovation! Founded on the belief that technology should simplify, not complicate, life, NextShop came to life. Picture this: a group of tech enthusiasts united by the vision of delivering cutting-edge gadgets that seamlessly integrate into your lifestyle. The Journey From that shared passion, NextShop was born. We scoured the tech landscape, handpicking the finest devices that redefine what's possible. Our mission? To make top-tier electronics accessible to all.",
 };
 
-const page = () => {
+const About = () => {
   return (
     <main className='flex flex-col'>
       <Hero title='about us' />
@@ -65,4 +65,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default About;
