@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { useCartStore } from '../store/store';
+import useCartStore from '../store/cartStore';
 import { ProductType } from '../types/types';
 import Button from './Button';
 

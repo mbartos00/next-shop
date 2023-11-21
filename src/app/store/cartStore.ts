@@ -1,24 +1,19 @@
 import { create } from 'zustand';
-import { ProductType } from '../types/types';
 import { createJSONStorage, persist } from 'zustand/middleware';
+import { ProductType } from '../types/types';
 
-type Product = ProductType & {
+export type CartProduct = ProductType & {
   cartQuantity: number;
 };
 
-type StoreProps = {
-  isMenuOpen: boolean;
-  toggleMenuOpen: () => void;
-};
-
 type CartStoreProps = {
-  cart: Product[];
+  cart: CartProduct[];
   addToCart: (product: ProductType) => void;
-  removeFromCart: (product: ProductType) => void;
+  removeProduct: (product: ProductType) => void;
 };
 
-const updateCart = (product: ProductType, cart: Product[]): Product[] => {
-  const cartItem = { ...product, cartQuantity: 1 } as Product;
+const updateCart = (product: ProductType, cart: CartProduct[]): CartProduct[] => {
+  const cartItem = { ...product, cartQuantity: 1 } as CartProduct;
 
   const isProductInCart = cart.map((item) => item.id).includes(product.id);
 
@@ -27,12 +22,13 @@ const updateCart = (product: ProductType, cart: Product[]): Product[] => {
     return cart;
   }
   return cart.map((item) => {
-    if (item.id === product.id) return { ...item, cartQuantity: item.cartQuantity + 1 } as Product;
+    if (item.id === product.id)
+      return { ...item, cartQuantity: item.cartQuantity + 1 } as CartProduct;
     return item;
   });
 };
 
-const removeFromCart = (product: ProductType, cart: Product[]) => {
+const removeProduct = (product: ProductType, cart: CartProduct[]) => {
   const productInCart = cart.find((item) => item.id === product.id);
 
   if (!!productInCart) {
@@ -40,7 +36,7 @@ const removeFromCart = (product: ProductType, cart: Product[]) => {
     if (isMoreThanOneProductInCart) {
       return cart.map((item) => {
         if (item.id === product.id)
-          return { ...item, cartQuantity: item.cartQuantity - 1 } as Product;
+          return { ...item, cartQuantity: item.cartQuantity - 1 } as CartProduct;
         return item;
       });
     }
@@ -48,10 +44,9 @@ const removeFromCart = (product: ProductType, cart: Product[]) => {
   }
 };
 
-const useGlobalStore = create<StoreProps>()((set) => ({
-  isMenuOpen: false,
-  toggleMenuOpen: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
-}));
+const removeFromCart = (product: ProductType, cart: CartProduct[]) => {
+  return cart.filter((item) => item.id !== product.id);
+};
 
 const useCartStore = create<CartStoreProps>()(
   persist(
@@ -62,10 +57,14 @@ const useCartStore = create<CartStoreProps>()(
         const updatedCart = updateCart(product, cart);
         set({ cart: updatedCart });
       },
+      removeProduct: (product: ProductType) => {
+        const cart = get().cart;
+        const updatedCart = removeProduct(product, cart);
+        set({ cart: updatedCart });
+      },
       removeFromCart: (product: ProductType) => {
         const cart = get().cart;
-        const updatedCart = removeFromCart(product, cart);
-        set({ cart: updatedCart });
+        set({ cart: removeFromCart(product, cart) });
       },
       clearCart: () => set(() => ({ cart: [] })),
     }),
@@ -76,4 +75,4 @@ const useCartStore = create<CartStoreProps>()(
   )
 );
 
-export { useGlobalStore, useCartStore };
+export default useCartStore;

@@ -1,6 +1,7 @@
 'use client';
 import useWindowWidth from '@/app/hooks/useWindowWidth';
-import { useCartStore, useGlobalStore } from '@/app/store/store';
+import useGlobalStore from '@/app/store/globalStore';
+import useCartStore from '@/app/store/cartStore';
 import isMobileWidth from '@/app/utils/isMobileWidth';
 import Image from 'next/image';
 import Link from 'next/link';
