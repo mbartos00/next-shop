@@ -10,6 +10,7 @@ type CartStoreProps = {
   cart: CartProduct[];
   addToCart: (product: ProductType) => void;
   removeProduct: (product: ProductType) => void;
+  removeFromCart: (product: ProductType) => void;
 };
 
 const updateCart = (product: ProductType, cart: CartProduct[]): CartProduct[] => {
