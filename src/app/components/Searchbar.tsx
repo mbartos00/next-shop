@@ -14,7 +14,7 @@ const Searchbar = ({ className = '' }: { className?: string }) => {
     >
       <Form className={`w-fit max-w-full ${className}`}>
         <div className='mb-8 flex '>
-          <Input name='search' placeholder='Search' className='mt-0' />
+          <Input name='search' placeholder='Search' className='!mt-0' />
           <Button
             tag='button'
             text={
