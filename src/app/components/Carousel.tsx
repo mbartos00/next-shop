@@ -1,7 +1,6 @@
 'use client';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import Swipe from 'react-easy-swipe';
 import { ProductType } from '../types/types';
@@ -32,6 +31,7 @@ type Review = {
 
 const Carousel = ({ content, variant, arrows, heading }: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
   const handleNextSlide = () => {
     let newSlide = currentSlide === content.length - 1 ? 0 : currentSlide + 1;
     setCurrentSlide(newSlide);
@@ -41,6 +41,7 @@ const Carousel = ({ content, variant, arrows, heading }: Props) => {
     let newSlide = currentSlide === 0 ? content.length - 1 : currentSlide - 1;
     setCurrentSlide(newSlide);
   };
+
   const variants = {
     enter: {
       opacity: 0,
@@ -81,6 +82,7 @@ const Carousel = ({ content, variant, arrows, heading }: Props) => {
             className='relative z-10 h-full w-full'
           >
             {variant === 'hero' &&
+              content.length > 0 &&
               content.map((product, index) => {
                 if (index === currentSlide) {
                   return (
@@ -120,6 +122,7 @@ const Carousel = ({ content, variant, arrows, heading }: Props) => {
                 }
               })}
             {variant === 'review' &&
+              content.length > 0 &&
               content.map((item, index) => {
                 if (index === currentSlide) {
                   return (

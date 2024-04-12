@@ -14,6 +14,7 @@ const getLatestProducts = async (): Promise<ProductType[]> => {
 
 const HomeHero = async () => {
   const latestProducts = await getLatestProducts();
+
   return (
     <div>
       <Carousel variant='hero' heading='our products are great' arrows content={latestProducts} />

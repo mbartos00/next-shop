@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { ProductType } from '../types/types';
 import Button from './Button';
